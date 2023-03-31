@@ -14,8 +14,8 @@ final class LoginViewController: UIViewController {
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var userPasswordTF: UITextField!
     
-    private let validNameUser = "User"
-    private let validPasswordUser = "1111"
+    private let validUserName = "User"
+    private let validUserPassword = "1111"
     
     // MARK: - Override functions
     
@@ -25,8 +25,8 @@ final class LoginViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard
-            userNameTF.text == validNameUser,
-            userPasswordTF.text == validPasswordUser else {
+            userNameTF.text == validUserName,
+            userPasswordTF.text == validUserPassword else {
             showAlert(
                 withTitle: "Incorrect user name or password",
                 andMessage: "Try again!"
