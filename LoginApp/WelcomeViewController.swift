@@ -9,9 +9,13 @@ import UIKit
 
 final class WelcomeViewController: UIViewController {
 
+    // MARK: - Properties
+    
     @IBOutlet var greetingLabel: UILabel!
     
     var greetingText: String!
+    
+    // MARK: - View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,18 +9,21 @@ import UIKit
 
 final class LoginViewController: UIViewController {
 
+    // MARK: - Properties
+    
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var userPasswordTF: UITextField!
     
     private let validNameUser = "User"
     private let validPasswordUser = "1111"
     
+    // MARK: - Override functions
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.view.endEditing(true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard
             userNameTF.text == validNameUser,
             userPasswordTF.text == validPasswordUser else {
@@ -36,6 +39,8 @@ final class LoginViewController: UIViewController {
         welcomeVC.greetingText = name
     }
     
+    // MARK: - IBActions
+    
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         userNameTF.text = nil
         userPasswordTF.text = nil
@@ -50,6 +55,7 @@ final class LoginViewController: UIViewController {
     }
 }
 
+    // MARK: - Extension
 
 extension LoginViewController {
     private func showAlert(withTitle title: String, andMessage message: String) {
