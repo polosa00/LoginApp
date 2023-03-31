@@ -7,40 +7,46 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
 
     @IBOutlet var userNameTF: UITextField!
-    @IBOutlet var passwordTF: UITextField!
+    @IBOutlet var userPasswordTF: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+    private let validNameUser = "User"
+    private let validPasswordUser = "1111"
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.view.endEditing(true)
-    
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard
+            userNameTF.text == validNameUser,
+            userPasswordTF.text == validPasswordUser else {
+            showAlert(
+                withTitle: "Incorrect user name or password",
+                andMessage: "Try again!"
+            )
+            return
+        }
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.greetingText = "Welcome, Alex!"
+        guard let name = userNameTF.text  else {return}
+        
+        welcomeVC.greetingText = name
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-    }
-
-
-    @IBAction func tappedLogginButton(_ sender: UIButton) {
+        userNameTF.text = nil
+        userPasswordTF.text = nil
     }
     
     @IBAction func tappedForgotName(_ sender: UIButton) {
-        showAlert(withTitle: "NO PROBLEM", andMessage: "Your name is Alex😎")
+        showAlert(withTitle: "NO PROBLEM", andMessage: "Your name is User😎")
     }
     
-    
     @IBAction func tappedForgotPassword(_ sender: Any) {
-        showAlert(withTitle: "NO PROBLEM", andMessage: "Your password is 1111!")
+        showAlert(withTitle: "NO PROBLEM", andMessage: "Your password is 1111😎")
     }
 }
 
@@ -52,12 +58,13 @@ extension LoginViewController {
             message: message,
             preferredStyle: .alert
         )
-        let okAction = UIAlertAction(title: "Ok", style: .default)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            self.userNameTF.text = nil
+            self.userPasswordTF.text = nil
+        }
         
         alert.addAction(okAction)
         present(alert, animated: true)
-        
-        
     }
 }
 
