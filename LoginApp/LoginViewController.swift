@@ -34,7 +34,7 @@ final class LoginViewController: UIViewController {
             return
         }
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        guard let name = userNameTF.text  else {return}
+        guard let name = userNameTF.text  else { return }
         
         welcomeVC.greetingText = name
     }
