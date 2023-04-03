@@ -15,6 +15,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet var userPasswordTF: UITextField!
     
     private let user = User.getUser()
+    
    
     // MARK: - Override functions
     
@@ -31,8 +32,23 @@ final class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.greetingText = user.user
+        guard let tabBarController = segue.destination as? UITabBarController else { return }
+        guard let viewControllers = tabBarController.viewControllers else { return }
+        
+        viewControllers.forEach { viewController in
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.greetingText = user.user
+                welcomeVC.introduceText = user.person.fullname
+            } else if let introduceVC = viewController as? IntroduceViewController {
+                introduceVC.fullName = user.person.fullname
+                introduceVC.name = user.person.name
+                introduceVC.surname = user.person.surname
+            }
+        }
+        
+//
+//
+//        guard let I
     }
     
     // MARK: - IBActions
@@ -47,8 +63,8 @@ final class LoginViewController: UIViewController {
             userNameTF.text == user.user,
             userPasswordTF.text == user.password else {
             showAlert(
-                withTitle: "Incorrect user name or password",
-                andMessage: "Try again!"
+                withTitle: "Неверное имя пользователя или пароль",
+                andMessage: "Попробуйте снова!"
             )
             return
         }
@@ -58,8 +74,8 @@ final class LoginViewController: UIViewController {
     
     @IBAction func tappedForgotData(_ sender: UIButton) {
         sender.tag == 0
-            ? showAlert(withTitle: "NO PROBLEM",andMessage: "Your name is \(user.user)😎")
-            : showAlert(withTitle: "NO PROBLEM",andMessage: "Your password is \(user.password)😎")
+            ? showAlert(withTitle: "Без паники",andMessage: "Ваше имя \(user.user)😎")
+            : showAlert(withTitle: "Без паники",andMessage: "Ваш пароль \(user.password)😎")
     }
 }
 
@@ -72,7 +88,7 @@ extension LoginViewController {
             message: message,
             preferredStyle: .alert
         )
-        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+        let okAction = UIAlertAction(title: "Ок", style: .default) { _ in
             self.userPasswordTF.text = nil
         }
         

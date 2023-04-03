@@ -12,8 +12,10 @@ final class WelcomeViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet var greetingLabel: UILabel!
+    @IBOutlet var introduceLabel: UILabel!
     
-    var greetingText: String!
+    var greetingText = ""
+    var introduceText = ""
     
     // MARK: - View Did Load
     
@@ -42,6 +44,7 @@ final class WelcomeViewController: UIViewController {
         
         view.layer.insertSublayer(gradientLayer, at: 0)
         
-        greetingLabel.text = "Welcome, \(greetingText ?? "")!"
+        greetingLabel.text = "Welcome, \(greetingText)!"
+        introduceLabel.text = "My name is \(introduceText)."
     }
 }
