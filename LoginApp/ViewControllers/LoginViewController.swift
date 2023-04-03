@@ -14,29 +14,21 @@ final class LoginViewController: UIViewController {
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var userPasswordTF: UITextField!
     
-    private let validUserName = "User"
-    private let validUserPassword = "1111"
+    private let userName = "User"
+    private let userPassword = "1111"
     
     // MARK: - Override functions
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard
-            userNameTF.text == validUserName,
-            userPasswordTF.text == validUserPassword else {
-            showAlert(
-                withTitle: "Incorrect user name or password",
-                andMessage: "Try again!"
-            )
-            return
-        }
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        guard let name = userNameTF.text  else { return }
         
-        welcomeVC.greetingText = name
+        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+//        guard let name = userNameTF.text  else { return }  ---> для передачи данных из текстФилда
+        welcomeVC.greetingText = userName
     }
     
     // MARK: - IBActions
@@ -46,17 +38,31 @@ final class LoginViewController: UIViewController {
         userPasswordTF.text = nil
     }
     
+    @IBAction func pressedLoginButton() {
+        guard
+            userNameTF.text == userName,
+            userPasswordTF.text == userPassword else {
+            showAlert(
+                withTitle: "Incorrect user name or password",
+                andMessage: "Try again!"
+            )
+            return
+        }
+        
+        performSegue(withIdentifier: "showWelcomeVC", sender: nil)
+    }
+    
     @IBAction func tappedForgotName(_ sender: UIButton) {
         showAlert(
             withTitle: "NO PROBLEM",
-            andMessage: "Your name is \(validUserName)😎"
+            andMessage: "Your name is \(userName)😎"
         )
     }
     
     @IBAction func tappedForgotPassword(_ sender: Any) {
         showAlert(
             withTitle: "NO PROBLEM",
-            andMessage: "Your password is \(validUserPassword)😎"
+            andMessage: "Your password is \(userPassword)😎"
         )
     }
 }
@@ -71,7 +77,7 @@ extension LoginViewController {
             preferredStyle: .alert
         )
         let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
-            self.userNameTF.text = nil
+//            self.userNameTF.text = nil
             self.userPasswordTF.text = nil
         }
         

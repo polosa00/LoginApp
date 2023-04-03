@@ -43,7 +43,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="rdf-aJ-lOU" kind="show" identifier="showUser" id="XTT-fR-YSM"/>
+                                            <action selector="pressedLoginButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="LRC-bC-qzt"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hSh-gN-fnx">
@@ -83,6 +83,7 @@
                     <connections>
                         <outlet property="userNameTF" destination="0gA-P4-gNZ" id="44J-L4-2p6"/>
                         <outlet property="userPasswordTF" destination="D1I-1W-n2Q" id="65M-zY-E0H"/>
+                        <segue destination="rdf-aJ-lOU" kind="presentation" identifier="showWelcomeVC" id="lIW-fL-e28"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -109,8 +110,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7S-yu-Jrl">
-                                <rect key="frame" x="121" y="140" width="78" height="25.5"/>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="25"/>
+                                <rect key="frame" x="130.5" y="140" width="59" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
