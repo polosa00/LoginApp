@@ -41,9 +41,9 @@ final class LoginViewController: UIViewController {
                 welcomeVC.introduceText = user.person.fullName
             } else if let introduceVC = viewController as? IntroduceViewController {
                 introduceVC.fullName = user.person.fullName
-                introduceVC.name = user.person.name
-                introduceVC.surname = user.person.surname
                 introduceVC.image = user.person.personData.image
+                introduceVC.nikName = user.person.personData.nikName
+                introduceVC.location = user.person.personData.location
                 introduceVC.social = user.person.personData.instagram
             } else if let navigationController = viewController as? UINavigationController {
                 guard

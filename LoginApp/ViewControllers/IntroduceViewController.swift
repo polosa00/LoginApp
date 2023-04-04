@@ -17,8 +17,8 @@ class IntroduceViewController: UIViewController {
     
     @IBOutlet var socialButton: UIButton!
     
-    var name = ""
-    var surname = ""
+    var nikName = ""
+    var location = ""
     var fullName = ""
     var image = ""
     var social = ""
@@ -41,8 +41,8 @@ class IntroduceViewController: UIViewController {
         super.viewDidLoad()
       
         fullNameLabel.text = fullName
-        nikNameLabel.text = name
-        locationLabel.text = surname
+        nikNameLabel.text = nikName
+        locationLabel.text = location
         socialButton.setTitle(social, for: .normal)
         
         gradientLayer.frame = view.frame
