@@ -46,5 +46,7 @@ final class WelcomeViewController: UIViewController {
         
         greetingLabel.text = "Welcome, \(greetingText)!"
         introduceLabel.text = "My name is \(introduceText)."
+        
+        
     }
 }

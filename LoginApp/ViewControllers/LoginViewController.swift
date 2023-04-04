@@ -38,17 +38,20 @@ final class LoginViewController: UIViewController {
         viewControllers.forEach { viewController in
             if let welcomeVC = viewController as? WelcomeViewController {
                 welcomeVC.greetingText = user.user
-                welcomeVC.introduceText = user.person.fullname
+                welcomeVC.introduceText = user.person.fullName
             } else if let introduceVC = viewController as? IntroduceViewController {
-                introduceVC.fullName = user.person.fullname
+                introduceVC.fullName = user.person.fullName
                 introduceVC.name = user.person.name
                 introduceVC.surname = user.person.surname
+                introduceVC.image = user.person.personData.image
+                introduceVC.social = user.person.personData.instagram
+            } else if let navigationController = viewController as? UINavigationController {
+                guard
+                    let aboutMeVC = navigationController.topViewController
+                        as? AboutMeViewController else { return }
+                aboutMeVC.title = user.person.fullName
             }
         }
-        
-//
-//
-//        guard let I
     }
     
     // MARK: - IBActions

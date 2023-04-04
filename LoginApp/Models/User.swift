@@ -15,9 +15,15 @@ struct User {
             user: "Alexey",
             password: "1111",
             person: Person(
-                name: "Alexander",
+                name: "Sasha",
                 surname: "Polochanin",
-                description: "Bla-bla-bla"
+                personData: Data(
+                    nikName: "Alex",
+                    image: "Alex_POL_John",
+                    instagram: "alex.polochanin",
+                    location: "Minsk",
+                    description: "Bla-bla-bla"
+                )
             )
         )
     }
@@ -26,9 +32,19 @@ struct User {
 struct Person {
     let name: String
     let surname: String
-    var fullname: String {
+    var fullName: String {
         "\(name) \(surname)"
     }
+    let personData: Data
+   
+}
+
+struct Data {
+    let nikName: String
+    let image: String
+    let instagram: String
+    let location: String
+   
     let description: String
     
 }
