@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111B852229DCCF910061FF45 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111B852129DCCF910061FF45 /* NavigationViewController.swift */; };
 		11C6497129DB887F00B54CF4 /* IntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C6497029DB887F00B54CF4 /* IntroduceViewController.swift */; };
 		11C6497329DC918C00B54CF4 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C6497229DC918C00B54CF4 /* AboutMeViewController.swift */; };
 		11CA33C929D6283300448061 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CA33C829D6283300448061 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		111B852129DCCF910061FF45 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		11C6497029DB887F00B54CF4 /* IntroduceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceViewController.swift; sourceTree = "<group>"; };
 		11C6497229DC918C00B54CF4 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		11CA33C529D6283300448061 /* LoginApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +50,7 @@
 		11CA33BC29D6283300448061 = {
 			isa = PBXGroup;
 			children = (
+				111B852129DCCF910061FF45 /* NavigationViewController.swift */,
 				11CA33C729D6283300448061 /* LoginApp */,
 				11CA33C629D6283300448061 /* Products */,
 			);
@@ -182,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				111B852229DCCF910061FF45 /* NavigationViewController.swift in Sources */,
 				11C6497129DB887F00B54CF4 /* IntroduceViewController.swift in Sources */,
 				11CA33CD29D6283300448061 /* LoginViewController.swift in Sources */,
 				11C6497329DC918C00B54CF4 /* AboutMeViewController.swift in Sources */,

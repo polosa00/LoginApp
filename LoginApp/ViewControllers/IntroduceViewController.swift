@@ -14,8 +14,8 @@ class IntroduceViewController: UIViewController {
     @IBOutlet var fullNameLabel: UILabel!
     @IBOutlet var nikNameLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
-    
-    @IBOutlet var socialButton: UIButton!
+    @IBOutlet var socialLabel: UILabel!
+
     
     var nikName = ""
     var location = ""
@@ -43,7 +43,7 @@ class IntroduceViewController: UIViewController {
         fullNameLabel.text = fullName
         nikNameLabel.text = nikName
         locationLabel.text = location
-        socialButton.setTitle(social, for: .normal)
+        socialLabel.text = social
         
         gradientLayer.frame = view.frame
         gradientLayer.colors = [color1.cgColor, color2.cgColor]
@@ -59,5 +59,10 @@ class IntroduceViewController: UIViewController {
        
     }
     
-
+    
+    
+    @IBAction func tappedSocial() {
+//        performSegue(withIdentifier: "showInstagram", sender: nil)
+    }
+    
 }

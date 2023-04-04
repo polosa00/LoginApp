@@ -49,7 +49,7 @@ final class LoginViewController: UIViewController {
                 guard
                     let aboutMeVC = navigationController.topViewController
                         as? AboutMeViewController else { return }
-                aboutMeVC.title = user.person.fullName
+                aboutMeVC.textForTitle = user.person.fullName
             }
         }
     }
