@@ -17,11 +17,21 @@ final class WelcomeViewController: UIViewController {
     var greetingText = ""
     var introduceText = ""
     
-    // MARK: - View Did Load
+    // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setGradient()
+        
+        greetingLabel.text = "Welcome, \(greetingText)!"
+        introduceLabel.text = "My name is \(introduceText)."
+    }
+}
 
+    // MARK: - extensions
+
+extension WelcomeViewController {
+    private func setGradient() {
         let color1 = UIColor(
             red: 200 / 255,
             green: 119 / 255,
@@ -43,10 +53,5 @@ final class WelcomeViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         
         view.layer.insertSublayer(gradientLayer, at: 0)
-        
-        greetingLabel.text = "Welcome, \(greetingText)!"
-        introduceLabel.text = "My name is \(introduceText)."
-        
-        
     }
 }

@@ -7,8 +7,10 @@
 
 import UIKit
 
-class ThanksViewController: UIViewController {
+final class ThanksViewController: UIViewController {
 
+    // MARK: - Properties
+    
     @IBOutlet var mainLabel: UILabel!
 
     var textForLabel = ""
@@ -27,8 +29,11 @@ class ThanksViewController: UIViewController {
     )
     private let gradientLayer = CAGradientLayer()
     
+    // MARK: - Override functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         mainLabel.text = textForLabel
         
         gradientLayer.frame = view.frame

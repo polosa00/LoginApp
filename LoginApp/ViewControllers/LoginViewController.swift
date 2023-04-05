@@ -22,7 +22,6 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         userNameTF.text = user.user
         userPasswordTF.text = user.password
-
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
