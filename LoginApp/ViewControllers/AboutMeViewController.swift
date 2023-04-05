@@ -34,5 +34,8 @@ class AboutMeViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         
         view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        navigationController?.navigationBar.prefersLargeTitles = true // устаноавливаю через код Large Title (через сториборд не ставится) и не меняется цвет
+        navigationController?.navigationBar.tintColor = .white
     }
 }
