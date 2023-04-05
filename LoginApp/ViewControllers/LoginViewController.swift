@@ -16,7 +16,6 @@ final class LoginViewController: UIViewController {
     
     private let user = User.getUser()
     
-   
     // MARK: - Override functions
     
     override func viewDidLoad() {
@@ -49,7 +48,9 @@ final class LoginViewController: UIViewController {
                 guard
                     let aboutMeVC = navigationController.topViewController
                         as? AboutMeViewController else { return }
-                aboutMeVC.textForTitle = user.person.fullName
+                aboutMeVC.textForTitle = user.person.personData.nikName
+                aboutMeVC.descriptionMe = user.person.personData.aboutMe
+                aboutMeVC.sendToInfoVC = user.person.personData.thanks
             }
         }
     }
@@ -71,7 +72,6 @@ final class LoginViewController: UIViewController {
             )
             return
         }
-    
         performSegue(withIdentifier: "showWelcomeVC", sender: nil)
     }
     

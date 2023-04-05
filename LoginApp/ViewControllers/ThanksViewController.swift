@@ -7,8 +7,12 @@
 
 import UIKit
 
-class InfoViewController: UINavigationController {
+class ThanksViewController: UIViewController {
 
+    @IBOutlet var mainLabel: UILabel!
+
+    var textForLabel = ""
+    
     private let color1 = UIColor(
         red: 200 / 255,
         green: 119 / 255,
@@ -25,13 +29,13 @@ class InfoViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
-            gradientLayer.frame = view.frame
-            gradientLayer.colors = [color1.cgColor, color2.cgColor]
-            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-            gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
-            
-            view.layer.insertSublayer(gradientLayer, at: 0)
+        mainLabel.text = textForLabel
+        
+        gradientLayer.frame = view.frame
+        gradientLayer.colors = [color1.cgColor, color2.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
-
 }

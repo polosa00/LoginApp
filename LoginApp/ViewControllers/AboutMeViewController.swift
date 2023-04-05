@@ -9,7 +9,11 @@ import UIKit
 
 class AboutMeViewController: UIViewController {
     
+    @IBOutlet var aboutMeLabel: UILabel!
+    
     var textForTitle = ""
+    var descriptionMe = ""
+    var sendToInfoVC = ""
     
     private let color1 = UIColor(
         red: 200 / 255,
@@ -27,7 +31,6 @@ class AboutMeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         gradientLayer.frame = view.frame
         gradientLayer.colors = [color1.cgColor, color2.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
@@ -35,7 +38,16 @@ class AboutMeViewController: UIViewController {
         
         view.layer.insertSublayer(gradientLayer, at: 0)
         
+        aboutMeLabel.text = descriptionMe
+        navigationItem.title = textForTitle
+        
         navigationController?.navigationBar.prefersLargeTitles = true // устаноавливаю через код Large Title (через сториборд не ставится) и не меняется цвет
+        navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.tintColor = .white
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let infoVC = segue.destination as? ThanksViewController else { return }
+        infoVC.textForLabel = sendToInfoVC
     }
 }

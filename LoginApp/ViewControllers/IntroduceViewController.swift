@@ -16,10 +16,9 @@ class IntroduceViewController: UIViewController {
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var socialLabel: UILabel!
 
-    
     var nikName = ""
-    var location = ""
     var fullName = ""
+    var location = ""
     var image = ""
     var social = ""
     
@@ -56,13 +55,5 @@ class IntroduceViewController: UIViewController {
         mainImage.layer.borderWidth = CGFloat(4)
         mainImage.layer.borderColor = .init(red: 50 / 255, green: 83 / 255, blue: 149 / 255, alpha: 1)
         mainImage.layer.cornerRadius = 100
-       
     }
-    
-    
-    
-    @IBAction func tappedSocial() {
-//        performSegue(withIdentifier: "showInstagram", sender: nil)
-    }
-    
 }
